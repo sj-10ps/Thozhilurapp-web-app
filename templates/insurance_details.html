@@ -1,0 +1,313 @@
+{% include 'admin_header.html' %}
+<!-- 
+    {%if data['view']%}
+    <h1>ACCIDENT REPORTS</h1>
+    <table border="1">
+        <tr>
+            <th>accident_report</th>
+            <th>date</th>
+            
+            <th>grant insurance</th>
+
+        </tr>
+        {%for i in data['view']%}
+        <tr>
+            <td>{{i['report']}}</td>
+            <td>{{i['date']}}</td>
+            <td><a href="grant_insurance?a_id={{i['accident_id']}}&c_id={{i['card_id']}}">grant insurance</a> </td>
+            
+
+        </tr>
+        {%endfor%}
+       
+
+    </table>
+    
+ 
+    {%else%}
+    <h1>grant insurance</h1>
+    <form action="" method="post">
+    <table>
+        <tr>
+            <th>policy type</th>
+            <td><select name="policy" id="">
+                <option value="accident">accident</option>
+                <option value="death">death</option>
+                <option value="other">others</option>
+               </select>
+            </td>
+            </tr>
+            <tr> 
+                  <th>amount</th>
+                  <td><input type="text" name="amt"></td>
+                </tr>
+                <tr> 
+                      <th>description</th>
+                      <td><textarea name="description" id=""></textarea></td>
+                    </tr>
+                  
+                        <tr>  
+                            
+                             <td><button name="submit">GRANT</button></td>
+                         </tr>
+       
+       
+
+    </table>
+</form>
+{%endif%}
+<h1>APPROVED insurances</h1>
+
+<table border="1">
+        
+    <tr>
+        <th>accident_report</th>
+        <th>date of accident</th>
+        <th>insurance status</th>
+    </tr>
+    {%for i in data['grant']%}
+    <tr>
+        <td>{{i['report']}}</td>
+        <td>{{i['date']}}</td>
+        <td>{{i['a_status']}}</td>
+    </tr>
+    {%endfor%}
+</table> -->
+
+
+
+<section>
+
+
+  <div class="bg-image h-100" style="background-color: #f5f7fa;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+
+
+
+
+        <h1>approved accident reports</h1>
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card shadow-2-strong">
+              <div class="card-body p-0">
+
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true"
+                  style="position: relative; height: 700px">
+                  {%if data['view']%}
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>accident report</th>
+                        <th>worker name</th>
+                        <th>card no</th>
+                        <th>date of report</th>
+
+
+                        <th></th>
+
+
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {%for i in data['view']%}
+                      <tr>
+                        <td>{{i['report']}}</td>
+                        <td>{{i['worker_name']}}</td>
+                        <td>{{i['card_no']}}</a></td>
+                        <td>{{i['date']}}</td>
+                        <td><a
+                            href="grant_insurance?a_id={{i['accident_id']}}&c_id={{i['card_no']}}&w_name={{i['worker_name']}}">grant
+                            insurance</a> </td>
+
+
+                      </tr>
+                      {%endfor%}
+
+
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><br><br>
+
+{%else%}
+
+<form action="" method="post">
+  <table border="2">
+    <tr>
+      <th>policy type</th>
+      <td><select name="policy" id="">
+          <option value="accident">accident</option>
+          <option value="death">death</option>
+          <option value="other">others</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th>amount</th>
+      <td><input type="text" name="amt"></td>
+    </tr>
+    <tr>
+      <th>description</th>
+      <td><textarea name="description" id=""></textarea></td>
+    </tr>
+
+    <tr>
+
+      <td><button name="submit">GRANT</button></td>
+    </tr>
+
+
+
+  </table>
+</form>
+{%endif%}
+<section>
+  <div class="bg-image h-100" style="background-color: #f5f7fa;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+
+
+
+
+        <h1>granted insurances</h1>
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card shadow-2-strong">
+              <div class="card-body p-0">
+
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true"
+                  style="position: relative; height: 700px">
+
+
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Insurance policy</th>
+                        <th>Amount</th>
+                        <th>card no</th>
+                        <th>worker name</th>
+                        <th>description</th>
+                        <th>date</th>
+
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {%for i in data['grant']%}
+                      <tr>
+                        <td>{{i['policy_type']}}</td>
+                        <td>{{i['amount']}}</td>
+                        <td>{{i['card_no']}}</a></td>
+                        <td>{{i['worker_name']}}</td>
+                        <td>{{i['description']}}</td>
+                        <td>{{i['date']}}</td>
+
+                      </tr>
+                      {%endfor%}
+
+
+
+
+
+
+
+
+
+
+
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <div class="bg-image h-100" style="background-color: #f5f7fa;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+
+
+
+
+        <h1>paid insurances</h1>
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card shadow-2-strong">
+              <div class="card-body p-0">
+
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true"
+                  style="position: relative; height: 700px">
+
+
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Insurance policy</th>
+                        <th>Amount</th>
+                        <th>card no</th>
+                        <th>worker name</th>
+                        <th>description</th>
+                        <th>date</th>
+
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {%for i in data['paid']%}
+                      <tr>
+                        <td>{{i['policy_type']}}</td>
+                        <td>{{i['amount']}}</td>
+                        <td>{{i['card_no']}}</a></td>
+                        <td>{{i['worker_name']}}</td>
+                        <td>{{i['description']}}</td>
+                        <td>{{i['date']}}</td>
+
+                      </tr>
+                      {%endfor%}
+
+
+
+
+
+
+
+
+
+
+
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+{% include 'footer.html' %}

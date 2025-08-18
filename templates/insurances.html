@@ -1,0 +1,103 @@
+{%include 'payment_header.html'%}
+<section>
+    <div class="bg-image h-100" style="background-color: #f5f7fa;">
+        <div class="mask d-flex align-items-center h-100">
+          <div class="container">
+          
+  
+             
+          
+              <h1>Insurances To Pay</h1>
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <div class="card shadow-2-strong">
+                  <div class="card-body p-0">
+                    
+                    <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+    <table>
+      <tr>
+        <th>Insurance Description</th>
+        <th>Insurance Policy</th>
+        <th>Amount</th>
+        <th>Worker Name</th>
+        <th>Card No:</th>
+        <th>Granted Date</th>
+        <th></th>
+      </tr>
+      {%for i in data['granted']%}
+      <tr>
+        <td>{{i['description']}}</td>
+        <td>{{i['policy_type']}}</td>
+        <td>{{i['amount']}}</td>
+        <td>{{i['worker_name']}}</td>
+        <td>{{i['card_no']}}</td>
+        <td>{{i['date']}}</td>
+        <td><a href="/insurance_payment?card={{ i['card_no'] }}&amt={{ i['amount'] }}&id={{i['insurance_id']}}">Pay</a></td>
+      </tr>
+      {%endfor%}
+
+    </table>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+</section>
+<section>
+    <div class="bg-image h-100" style="background-color: #f5f7fa;">
+        <div class="mask d-flex align-items-center h-100">
+          <div class="container">
+          
+  
+             
+          
+              <h1>Paid Insurances</h1>
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <div class="card shadow-2-strong">
+                  <div class="card-body p-0">
+                    
+                    <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                        <table>
+                            <tr>
+                              <th>Insurance Description</th>
+                              <th>Insurance Policy</th>
+                              <th>Amount</th>
+                              <th>Worker Name</th>
+                              <th>Card No:</th>
+                              <th>Granted Date</th>
+                              <th></th>
+                            </tr>
+                            {%for i in data['paid']%}
+                            <tr>
+                              <td>{{i['description']}}</td>
+                              <td>{{i['policy_type']}}</td>
+                              <td>{{i['amount']}}</td>
+                              <td>{{i['worker_name']}}</td>
+                              <td>{{i['card_no']}}</td>
+                              <td>{{i['date']}}</td>
+                              
+                            </tr>
+                            {%endfor%}
+                      
+                          </table>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+</section>
+
+{%include 'footer.html'%}

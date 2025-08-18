@@ -1,0 +1,228 @@
+{% include 'admin_header.html' %}
+    
+<!-- 
+   <div class="container">
+    <h1>Register overseer</h1>
+<form action="" method='post'>
+    <div class="php-email-form">
+<table>
+<tr>
+  <th>First name</th>
+  <td><input type="text" name="fname"></td>
+</tr>
+<tr>
+    <th>last name</th>
+    <td><input type="text" name="lname"></td>
+  </tr>
+<tr>
+    <th>date of birth</th>
+    <td><input type="text" name="dob"></td>
+</tr>
+<tr>
+    <th>gender</th>
+    <td><input type="radio" name="gender" value="male">male
+        <input type="radio" name="gender" value="female">female
+        <input type="radio" name="gender" value="others">others
+    </td>
+</tr>
+<tr>
+    <th>phone</th>
+    <td><input type="text" name="phone"></td>
+</tr>
+<tr>
+    <th>email</th>
+    <td><input type="text" name="email"></td>
+</tr>
+<tr>
+    <th>house name</th>
+    <td><input type="text" name="house" ></td>
+</tr>
+<tr>
+    <th>post office</th>
+    <td><input type="text" name="post" ></td>
+</tr>
+<tr>
+    <th>district</th>
+    <td><input type="text" name="district" ></td>
+</tr>
+<tr>
+    <th>panchayat</th>
+    <td><input type="text" name="panchayat"></td>
+</tr>
+<tr>
+    <th>username</th>
+    <td><input type="text" name="uname"></td>
+</tr>
+<tr>
+    <th>password</th>
+    <td><input type="password" name="pword"></td>
+</tr>
+<tr>
+    <td><input type="submit" name="reg"></td>
+</tr>
+
+</table>
+
+</form>
+</div>
+</div>  -->
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container register">
+                <div class="row">
+                    <div class="col-md-3 register-left">
+                        <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                        <h3>Welcome</h3>
+                        <p>Register your Overseer from here</p>
+                       
+                    </div>
+                    <div class="col-md-9 register-right">
+                        <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                      
+                                <i class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Overseer</i>
+                       
+                        
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <h3 class="register-heading">Register Overseer</h3>
+                                <form action="" method="post">
+                                <div class="row register-form">
+                                   
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="First Name *" value="" name="fname" required=""/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Last Name *" value="" name="lname" required=""/>
+                                        </div>
+                                    
+                                        <div class="form-group">
+                                            <input type="text" class="form-control"  placeholder="date of birth *" value="" name="dob" required="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="house name *" value="" required="" name="house"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Post office *" value="" required="" name="post"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="district *" value="" required="" name="district"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="panchayat *" value="" required="" name="panchayat"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="maxl">
+                                                <label class="radio inline"> 
+                                                    <input type="radio" name="gender" value="male" checked>
+                                                    <span> Male </span> 
+                                                </label>
+                                                <label class="radio inline"> 
+                                                    <input type="radio" name="gender" value="female">
+                                                    <span>Female </span> 
+                                                </label>
+                                                <label class="radio inline"> 
+                                                    <input type="radio" name="gender" value="others">
+                                                    <span>Others</span> 
+                                                </label>
+                                            </div>
+                                        </div>
+                                     
+                                    </div>
+                                    <div class="col-md-6">
+                                       
+                                        <div class="form-group">
+                                            <input type="text" minlength="10" maxlength="10" name="phone" class="form-control" placeholder="Your Phone *" value=""  required=""/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Your Email *" value=""  name="email" required=""/>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text"  class="form-control" placeholder="Username or email *" value=""  name="uname" required=""/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Password *" value=""  name="pword" required=""/>
+                                        </div>
+                                        <!-- <div class="form-group">
+                                            <select class="form-control">
+                                                <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
+                                                <option>What is your Birthdate?</option>
+                                                <option>What is Your old Phone Number</option>
+                                                <option>What is your Pet Name?</option>
+                                            </select>
+                                        </div> -->
+                                        <!-- <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Enter Your Answer *" value="" />
+                                        </div> -->
+                                       
+                                    </div>
+                                    <input type="submit" class="btnRegister"  value="Register"  name="reg"/>
+                                </div>
+                                </form>
+
+                           
+                                
+                            </div>
+                           
+                            <!-- <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <h3  class="register-heading">Apply as a Hirer</h3>
+                                <div class="row register-form">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Email *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
+                                        </div>
+
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Password *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
+                                        </div>
+                                        <div class="form-group">
+                                            <select class="form-control">
+                                                <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
+                                                <option>What is your Birthdate?</option>
+                                                <option>What is Your old Phone Number</option>
+                                                <option>What is your Pet Name?</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="`Answer *" value="" />
+                                        </div>
+                                     
+                                        <input type="submit" class="btnRegister"  value="Register"/>
+                                      
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                      
+                    </div>
+                
+                </div>
+             
+            </div>
+
+
+   
+    
+
+{% include 'footer.html' %}

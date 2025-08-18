@@ -1,0 +1,171 @@
+{% include 'admin_header.html' %}
+<!-- <h1>work report</h1>
+
+    <table border="1">
+        <tr>
+            
+            <th>working days</th>
+        </tr>
+        {%for i in data['att']%}
+        <tr>
+           
+            <td>{{i['count(distinct(date))']}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+
+    <table border="2">
+        <tr>
+            <th>card id</th>
+            <th>morning attendance</th>
+            <th>evening attendance</th>
+            <th>status</th>
+            
+        </tr>
+        {%for i in data['card']%}
+        <tr>
+            <td>{{i['card_id']}}</td>
+         
+          
+       <td>{{i['m_attendance']}}</td>
+       <td>{{i['a_attendance']}}</td>
+       <td>{{i['status']}}</td>
+      
+      
+      
+        </tr>
+        {%endfor%}
+    
+   
+       
+    </table> -->
+
+
+        
+    <section>
+
+      
+        <div class="bg-image h-100" style="background-color: #f5f7fa;">
+          <div class="mask d-flex align-items-center h-100">
+            <div class="container">
+            
+  
+               
+            
+                <h1>work report</h1>
+              <div class="row justify-content-center">
+                <div class="col-12">
+                  <div class="card shadow-2-strong">
+                    <div class="card-body p-0">
+                      
+                      <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                   
+                        <table>
+                          <thead>
+                            <tr>
+                                <th>working days</th>
+                                {%for i in data['att']%}
+                           
+                               
+                                <td>{{i['count(distinct(date))']}}</td>
+                           
+                            {%endfor%}
+                             
+                             
+                            </tr>
+                          </thead>
+                          <tbody>
+                         
+  
+                           
+                          </tbody>
+                        </table>
+                                          
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </section>
+                        
+          
+                    
+                        <section>
+
+      
+                          <div class="bg-image h-100" style="background-color: #f5f7fa;">
+                            <div class="mask d-flex align-items-center h-100">
+                              <div class="container">
+                              
+                      
+                                 
+                              
+                                <h1>attendance report</h1>
+                                <div class="row justify-content-center">
+                                  <div class="col-12">
+                                    <div class="card shadow-2-strong">
+                                      <div class="card-body p-0">
+                                        
+                                        <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                                     
+                          <table>
+                            <thead>
+                             <tr>
+                                <th>card no.</th>
+                                <th>morning attendance</th>
+                                <th>afternoon attendance</th>
+                                <th>date</th>
+                                <th>work in %</th>
+                        
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {%for i in data['card']%}
+                                <tr>
+                                    <td>{{i['card_no']}}</td>
+                                
+                                
+                            <td>{{i['m_attendance']}}</td>
+                            <td>{{i['a_attendance']}}</td>
+                            <td>{{i['date']}}</td>
+                            <td>{{i['status']}}</td>
+                           
+                            
+                            
+                            
+                                </tr>
+        {%endfor%}
+    
+   
+  
+  
+  
+                             
+  
+  
+                             
+  
+  
+                            
+                             
+                            </tbody>
+                          </table>
+                         
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </section>
+      
+  
+    
+    {% include 'footer.html' %}

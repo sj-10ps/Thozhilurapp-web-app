@@ -1,0 +1,96 @@
+{%include 'payment_header.html'%}
+<section>
+    <div class="bg-image h-100" style="background-color: #f5f7fa;">
+        <div class="mask d-flex align-items-center h-100">
+          <div class="container">
+          
+  
+             
+          
+              <h1>Wages To Pay</h1>
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <div class="card shadow-2-strong">
+                  <div class="card-body p-0">
+                    
+                    <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+    <table>
+      <tr>
+        <th>Ward</th>
+        <th>Work Description</th>
+        <th>Amount</th>
+        <th>Date Of Approval</th>
+        <th></th>
+      </tr>
+      {%for i in data['data']%}
+      <tr>
+        <td>{{i['ward']}}</td>
+        <td>{{i['description']}}</td>
+        <td>{{i['total']}}</td>
+        <td>{{i['date']}}</td>
+        <td><a href="/payment_page?ward={{ i['ward'] }}&amt={{ i['total'] }}&id={{ i['wage_id'] }}">Pay</a></td>
+      </tr>
+      {%endfor%}
+
+    </table>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+</section>
+
+<section>
+    <div class="bg-image h-100" style="background-color: #f5f7fa;">
+        <div class="mask d-flex align-items-center h-100">
+          <div class="container">
+          
+  
+             
+          
+              <h1>Paid Wages</h1>
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <div class="card shadow-2-strong">
+                  <div class="card-body p-0">
+                    
+                    <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+    <table>
+      <tr>
+        <th>Ward</th>
+        <th>Work Description</th>
+        <th>Amount</th>
+        <th>Date Of Approval</th>
+      
+      </tr>
+      {%for i in data['paid']%}
+      <tr>
+        <td>{{i['ward']}}</td>
+        <td>{{i['description']}}</td>
+        <td>{{i['total']}}</td>
+        <td>{{i['date']}}</td>
+       
+      </tr>
+      {%endfor%}
+
+    </table>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+</section>
+
+{%include 'footer.html'%}

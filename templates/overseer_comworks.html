@@ -1,0 +1,199 @@
+{% include 'overseer_header.html' %}
+    <!-- <h1>completed works</h1>
+{%if data['com_works']%}
+ <table border="1">
+ <tr>
+   <th>ward</th>
+    <th>description</th>
+    <th>latitude</th>
+    <th>longitude</th>
+    <th>start date</th>
+    <th>end date</th>
+    <th>starting image</th>
+    <th>ending image</th>
+ 
+ </tr>
+ {%for i in data['com_works']%}
+ <tr>
+    <td>{{i['ward']}}</td>
+<td>{{i['description']}}</td>
+<td>{{i['latitude']}}</td>
+<td>{{i['longitude']}}</td>
+<td>{{i['start_date']}}</td>
+<td>{{i['end_date']}}</td>
+<td>{{i['image']}}</td>
+<td>{{i['image_proof']}}</td>
+
+<td><a href="overseer_wage?&id={{i['work_id']}}">wage estimation</a></td>
+
+ </tr>
+ {%endfor%}
+
+
+ </table>
+ {%else%}
+ <form action="" method="post">
+ <table border="1">
+    <tr>
+        <th>wage total</th>
+        <th>description</th>
+        <th>status</th>
+        <th>response</th>
+        <th colspan="2">reply to wage report</th>
+    </tr>
+    {%for i in data['wage']%}
+    <tr>
+        <td>{{i['total']}}</td>
+        <td>{{i['description']}}</td>
+        <td>{{i['status']}}</td>
+        <td>{{i['response']}}</td>
+        <td><textarea name="response"></textarea></td>
+        <td> <input type="submit" name="submit"></td>
+        
+    </tr>
+    {%endfor%}
+    
+
+ </table>
+</form>
+ {%endif%} -->
+    
+
+     
+ <section>
+
+      
+    <div class="bg-image h-100" style="background-color: #f5f7fa;">
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container">
+        
+
+           
+        
+            <h1>completed works</h1>
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="card shadow-2-strong">
+                <div class="card-body p-0">
+                  
+                  <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                    {%if data['com_works']%}
+                    <table>
+                      <thead>
+                        <tr>
+                            <th>ward no.</th>
+                            <th>work_details</th>
+                            <th>latitude</th>
+                            <th>longitude</th>
+                            <th>started date</th>
+                            <th>ended date</th>
+                            <th>starting image</th>
+
+                            <th>ending image</th>
+                            
+                            <th></th>
+                
+                     
+                          
+                         
+                         
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {%for i in data['com_works']%}
+                        <tr>
+                            <td>{{i['ward']}}</td>
+                        <td>{{i['description']}}</td>
+                        <td>{{i['latitude']}}</td>
+                        <td>{{i['longitude']}}</td>
+                        <td>{{i['start_date']}}</td>
+                        <td>{{i['end_date']}}</td>
+                        <td><img src="{{i['image']}}" alt=""></td>
+                        <td><img src="{{i['image_proof']}}" alt=""></td>
+
+                        <td><a href="overseer_wreport?&id={{i['work_id']}}">work report</a></td>
+
+                        </tr>
+                        {%endfor%}
+
+                       
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section><br><br>
+                    {%else%}
+                    <section>
+
+      
+                      <div class="bg-image h-100" style="background-color: #f5f7fa;">
+                        <div class="mask d-flex align-items-center h-100">
+                          <div class="container">
+                          
+                  
+                             
+                          
+                              <h1>work report</h1>
+                            <div class="row justify-content-center">
+                              <div class="col-12">
+                                <div class="card shadow-2-strong">
+                                  <div class="card-body p-0">
+                                    
+                                    <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                 
+                      
+                    <table>
+                      <thead>
+                        <tr>
+                            <th>card no.</th>
+                            <th>morning attendance</th>
+                            <th>afternoon attendance</th>
+                            <th>date</th>
+                            <th>percentage of attendance</th>
+                           
+                            
+                        
+                
+                     
+                          
+                         
+                         
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {%for i in data['com']%}
+                        <tr>
+                            <td>{{i['card_id']}}</td>
+                        <td>{{i['m_attendance']}}</td>
+                        <td>{{i['a_attendance']}}</td>
+                        <td>{{i['date']}}</td>
+                        <td>{{i['status']}}</td>
+                       
+
+                        </tr>
+                        {%endfor%}
+
+                       
+                      </tbody>
+                    </table><br><br>
+                        {%endif%} 
+                     
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  
+ {% include 'footer.html' %}

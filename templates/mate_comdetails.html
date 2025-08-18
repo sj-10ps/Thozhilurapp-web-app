@@ -1,0 +1,110 @@
+{% include 'admin_header.html' %}
+<!-- <br>
+    <h1>details of mate</h1>
+  
+
+    <table border="2">
+        <tr>
+            
+            <th>first_name</th>
+            <th>last_name</th>
+            <th>ward</th>
+            <th>complaint</th>
+            <th>mate_response</th>
+            <th>reply to mate</th>
+           
+           
+        </tr>
+      
+        <tr>
+            {%for i in var['mate']%}
+            
+            <td>{{i['first_name']}}</td>
+            <td>{{i['last_name']}}</td>
+            <td>{{i['ward']}}</td>
+            {%endfor%}
+    
+            {%for j in data['comdetails']%}
+           
+            <td>{{j['complaint']}}</td>
+         
+            <td>{{j['mate_response']}}</td>
+            <td><a href="/send_complaint?id={{j['complaint_id']}}">respond to mate reply</a></td>
+          
+            {%endfor%}
+    
+        </tr>
+    </table>
+    <br> -->
+
+        
+    <section>
+
+      
+      <div class="bg-image h-100" style="background-color: #f5f7fa;">
+        <div class="mask d-flex align-items-center h-100">
+          <div class="container">
+          
+  
+             
+          
+              <h1>mate details</h1>
+            <div class="row justify-content-center">
+              <div class="col-12">
+                <div class="card shadow-2-strong">
+                  <div class="card-body p-0">
+                    
+                    <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                 
+                      <table>
+                        <thead>
+                          <tr>
+                                <th>first name</th>
+                                <th>last name</th>
+                                <th>ward</th>
+                                <th>complaint</th>
+                                <th>mate response</th>
+                                <th>reply to mate</th>
+                            
+                             
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                                {%for i in var['mate']%}
+                                
+                                <td>{{i['first_name']}}</td>
+                                <td>{{i['last_name']}}</td>
+                                <td>{{i['ward']}}</td>
+                                {%endfor%}
+                        
+                                {%for j in data['comdetails']%}
+                               
+                                <td>{{j['complaint']}}</td>
+                             
+                                <td>{{j['mate_response']}}</td>
+                                <td><a href="/send_complaint?id={{j['complaint_id']}}">respond to mate reply</a></td>
+                              
+                              
+                        
+                            </tr>
+                            {%endfor%}
+                           
+                          </tbody>
+                        </table><br><br>
+                        
+          
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </section>
+      
+ 
+ 
+    {% include 'footer.html' %}

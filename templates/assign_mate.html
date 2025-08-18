@@ -1,0 +1,148 @@
+{% include 'overseer_header.html' %}
+
+
+<!-- {%if data['temp']%}
+    <h1>assign mate</h1>
+    <form action="" method="post">
+        <table>
+            <tr>
+                <td><input type="submit" name="assign" value="assign_work"></td>
+            </tr>
+        </table>
+        </form>
+ 
+   
+   
+    {%else%}
+    <h1>assign mate</h1>
+    <table border="1">
+        <tr>
+            <th>first name</th>
+            <th>last name</th>
+            <th>days</th>
+        </tr>
+    {%for i in data['free']%}
+        <tr>
+            <td>{{i['first_name']}}</td>
+            <td>{{i['last_name']}}</td>
+            <td>{{i['days']}}</td>
+            <td><a href="assign_to_mate?action=update&mate_id={{i['officer_id']}}&work_id={{data['try'][0]['work_id']}}">assign</a></td>
+        </tr>
+        {%endfor%}
+    </table>
+
+   
+   {%endif%} -->
+
+
+<section>
+
+
+  <div class="bg-image h-100" style="background-color: #f5f7fa;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+
+
+
+
+
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card shadow-2-strong">
+              <div class="card-body p-0">
+
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true"
+                  style="position: relative; height: 700px">
+
+                  {%if data['temp']%}
+                  <center>
+                    <form action="" method="post">
+                      <table>
+                        <tr>
+                          <td><input type="submit" name="assign" value="assign_work"></td>
+                        </tr>
+                      </table>
+                    </form>
+                  </center>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+{%else%}
+
+<section>
+
+
+  <div class="bg-image h-100" style="background-color: #f5f7fa;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+
+
+        <h1>Mate details</h1>
+
+
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card shadow-2-strong">
+              <div class="card-body p-0">
+
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true"
+                  style="position: relative; height: 700px">
+
+
+
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>First name</th>
+                        <th>last name</th>
+                        <th>days</th>
+                        <th></th>
+
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {%for i in data['free']%}
+                      <tr>
+                        <td>{{i['first_name']}}</td>
+                        <td>{{i['last_name']}}</td>
+                        <td>{{i['days']}}</td>
+                        <td><a
+                            href="assign_to_mate?action=update&mate_id={{i['officer_id']}}&work_id={{data['try'][0]['work_id']}}">assign</a>
+                        </td>
+                      </tr>
+                      {%endfor%}
+
+
+
+
+
+
+
+
+
+
+
+                    </tbody>
+                  </table>
+                  {%endif%}
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+{% include 'footer.html' %}

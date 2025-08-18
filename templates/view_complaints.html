@@ -1,0 +1,256 @@
+{% include 'admin_header.html' %}
+<section>
+
+  {%if data['rply']%}
+  <div class="bg-image h-100" style="background-color: #f5f7fa;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+
+
+
+
+    
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card shadow-2-strong">
+              <div class="card-body p-0">
+
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true"
+                  style="position: relative; height: 700px">
+
+
+                  <h1>complaint against mate</h1>
+
+               
+                  <form action="" method="post">
+                    <table border="1">
+                      <tr>
+                        <th>complaint</th>
+                        <th colspan="2">reply</th>
+                      </tr>
+                      <tr>
+                        <td>{{data['rply'][0]['complaint']}}</td>
+                        <td><textarea name="upd"></textarea></td>
+                        <td><input type="submit" name="submit"></td>
+                      </tr>
+
+                    </table>
+                  </form>
+                  {%else%}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section>
+
+
+  <div class="bg-image h-100" style="background-color: #f5f7fa;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+
+
+
+
+        <h1>registered complaints</h1>
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card shadow-2-strong">
+              <div class="card-body p-0">
+
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true"
+                  style="position: relative; height: 700px">
+
+                  <table border="2">
+                    <tr>
+
+                      <th>COMPLAINTS</th>
+                      <th>DATE</th>
+                      <th>OVERSEER_REPLY</th>
+                      <th>reply_DATE</th>
+                      <th>reply to workers</th>
+                      <th>MATE DETAILS</th>
+
+
+                    </tr>
+
+                    {%for i in data['com']%}
+                    <tr>
+
+                      <td>{{i['complaint']}}</td>
+                      <td>{{i['date']}}</td>
+                      <td>{{i['reply']}}</td>
+                      <td>{{i['reply_date']}}</td>
+                      <td><a href="?action=update&id={{i['complaint_id']}}">reply</a></td>
+                      <td><a href="/mate_comdetails?id={{i['complaint_id']}}&mate_id={{i['mate_id']}}">mate details</a>
+                      </td>
+
+
+                    </tr>
+
+                    {%endfor%}
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<section>
+
+
+  <div class="bg-image h-100" style="background-color: #f5f7fa;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+
+
+
+        <h1>replied complaints</h1>
+
+     
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card shadow-2-strong">
+              <div class="card-body p-0">
+
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true"
+                  style="position: relative; height: 700px">
+
+                  <table border="2">
+                    <tr>
+
+                      <th>COMPLAINTS</th>
+                      <th>DATE</th>
+                      <th>OVERSEER_REPLY</th>
+                      <th>reply_DATE</th>
+
+                      <th>MATE DETAILS</th>
+
+
+                    </tr>
+
+                    {%for i in data['all']%}
+                    <tr>
+
+                      <td>{{i['complaint']}}</td>
+                      <td>{{i['date']}}</td>
+                      <td>{{i['reply']}}</td>
+                      <td>{{i['reply_date']}}</td>
+
+                      <td><a href="/mate_comdetails?id={{i['complaint_id']}}&mate_id={{i['mate_id']}}">mate details</a>
+                      </td>
+
+
+                    </tr>
+
+                    {%endfor%}
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+{%endif%}
+
+
+
+
+
+<!-- <section class="main">
+
+      
+    <div class="bg-image h-100" style="background-color: #f5f7fa;">
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container">
+        
+
+           
+        
+            <h1>complaints against mate</h1>
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="card shadow-2-strong">
+                <div class="card-body p-0">
+                  
+                 
+                 
+                    <br><br>
+                    
+      
+                    <h1>replied complaints</h1>
+                      
+                      <table class="table table-dark mb-0">
+                        <thead style="background-color: #140202;">
+                         <tr class="text-uppercase text-success">
+                            <th scope="col">complaint</th>
+                            <th scope="col">mate details</th>
+                            <th scope="col">date</th>
+                            <th scope="col">reply</th>
+                            <th scope="col">reply date</th>
+                           
+                       
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {%for i in data['all']%}
+                        <tr>
+                            
+                            <td>{{i['complaint']}}</td>
+                            <td><a href="/mate_comdetails?id={{i['complaint_id']}}&mate_id={{i['mate_id']}}">mate details</a></td>
+                            <td>{{i['date']}}</td>
+                            <td>{{i['reply']}}</td>
+                            <td>{{i['reply_date']}}</td>
+                            
+                    
+                            
+                            
+                        </tr>
+                      
+                        {%endfor%}
+
+
+
+                         
+
+
+                         
+
+
+                        
+                         
+                        </tbody>
+                      </table>
+                     
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section> -->
+
+
+
+
+
+{% include 'footer.html' %}

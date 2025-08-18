@@ -1,0 +1,214 @@
+{% include 'overseer_header.html' %}
+    <!-- <h1>approved works</h1>
+    <table border="1">
+        <tr>
+    <th>ward no.</th>
+    <th>latitude</th>
+    <th>longitude</th>
+    <th>description</th>
+    <th>start_date</th>
+   
+    <th>image</th>
+    <th>status</th>
+   
+</tr>
+{%for i in data['works']%}
+<tr>
+    <td>{{i['ward']}}</td>
+    <td>{{i['latitude']}}</td>
+    <td>{{i['longitude']}}</td>
+    <td>{{i['description']}}</td>
+    <td>{{i['start_date']}}</td>
+   
+    <td>{{i['image']}}</td>
+    <td>{{i['status']}}</td>
+    <td><a href="assign_mate?ward={{i['ward']}}&work_id={{i['work_id']}}">assign to mate</a></td>
+
+</tr>
+
+{%endfor%}
+</table>
+
+
+
+<h1>assigned works</h1>
+<table border="1">
+    <tr>
+<th>ward no.</th>
+<th>latitude</th>
+<th>longitude</th>
+<th>description</th>
+<th>start_date</th>
+
+<th>image</th>
+<th>status</th>
+<th>work progress</th>
+
+
+
+</tr>
+{%for i in data['all']%}
+<tr>
+<td>{{i['ward']}}</td>
+<td>{{i['latitude']}}</td>
+<td>{{i['longitude']}}</td>
+<td>{{i['description']}}</td>
+<td>{{i['start_date']}}</td>
+
+<td>{{i['image']}}</td>
+<td>{{i['status']}}</td>
+<td>{{i['progress']}}</td>
+
+</tr>
+{%endfor%}
+</table> -->
+
+
+
+<section>
+
+      
+  <div class="bg-image h-100" style="background-color: #f5f7fa;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+      
+        
+            <h1>Approved works</h1>
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="card shadow-2-strong">
+                <div class="card-body p-0">
+                  
+                  <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+               
+                    <table>
+                      <thead>
+                        <tr>
+                            <th>ward no.</th>
+                            <th>work_details</th>
+                            <th>latitude</th>
+                            <th>longitude</th>
+                            <th>started date</th>
+                            
+                            <th>image</th>
+                            <th>updated image</th>
+
+                            <th>work status</th>
+                
+                          <th></th>
+                      
+                         
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {%for i in data['works']%}
+                        <tr>
+                            <td>{{i['ward']}}</td>
+                            <td>{{i['description']}}</td>
+                            <td>{{i['latitude']}}</td>
+                            <td>{{i['longitude']}}</td>
+                           
+                            <td>{{i['start_date']}}</td>
+                        
+                            <td><img src="{{i['image']}}" alt=""></td>
+                            <td><img src="{{i['image_proof']}}" alt=""></td>
+                            <td>{{i['status']}}</td>
+                            <td><a href="assign_mate?ward={{i['ward']}}&work_id={{i['work_id']}}">assign to mate</a></td>
+
+                        </tr>
+
+                        {%endfor%}
+
+                       
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+                    
+      
+  <section>
+
+      
+    <div class="bg-image h-100" style="background-color: #f5f7fa;">
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container">
+        
+
+           
+        
+            <h1>assigned works</h1>
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="card shadow-2-strong">
+                <div class="card-body p-0">
+                  
+                  <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+               
+                    <table>
+                      <thead>
+                        <tr>
+                    
+                            <th>ward no.</th>
+                            <th>work_details</th>
+                            <th>latitude</th>
+                            <th>longitude</th>
+                            <th>started date</th>
+                            <th>image</th>
+                            <th>updated image</th>
+                            <th>status</th>
+
+                            <th>work progress</th>
+                
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {%for i in data['all']%}
+                        <tr>
+                        <td>{{i['ward']}}</td>
+                        <td>{{i['description']}}</td>
+                        <td>{{i['latitude']}}</td>
+                        <td>{{i['longitude']}}</td>
+                       
+                        <td>{{i['start_date']}}</td>
+                        
+                        <td><img src="{{i['image']}}" alt=""></td>
+                        <td><img src="{{i['image_proof']}}" alt=""></td>
+                        <td>{{i['status']}}</td>
+                        <td>{{i['progress']}}</td>
+                        
+                        </tr>
+                        {%endfor%}
+
+
+
+                         
+
+
+                         
+
+
+                        
+                         
+                        </tbody>
+                      </table>
+                     
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  
+{% include 'footer.html' %}

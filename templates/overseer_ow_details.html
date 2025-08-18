@@ -1,0 +1,264 @@
+{% include 'overseer_header.html' %}
+    <!-- {%if data['rply']%}
+    <h1>reply to feedback</h1>
+    <form action="" method="post">
+    <table>
+        <tr>
+            
+            <th colspan="2">{{data['rply'][0]['description']}}</th>
+           
+        </tr>
+        
+        <tr>
+            <th>reply</th>
+            <td><textarea name="rply" id=""></textarea></td>
+        </tr>
+        <tr>
+           <td><input type="submit" name="submit"></td> 
+        </tr>
+    </table>
+</form>
+
+    {%elif data['all'] %}
+
+
+<h1>work requirements</h1>
+    <table border="1">
+        <tr>
+            <th>shelter</th>
+            <th>tools</th>
+            <th>water</th>
+            <th>babies</th>
+            <th>description</th>
+            <th>date</th>
+            <th>reply</th>
+        </tr>
+        {%for i in data['all']%}
+        <tr>
+            <td>{{i['shelter']}}</td>
+            <td>{{i['tools']}}</td>
+            <td>{{i['water']}}</td>
+            <td>{{i['babies']}}</td>
+            <td>{{i['description']}}</td>
+            <td>{{i['date']}}</td>
+            <td>{{i['reply']}}</td>
+            <td><a href="overseer_reply_response?&id={{i['feedback_id']}}">reply to feedback</a></td>
+        </tr>
+        {%endfor%}
+
+    </table>
+
+    {%else%}
+    <h1>ongoing work details</h1>
+
+    <table border="1">
+        <tr>
+            <th>work_details</th>
+            <th>latitude</th>
+            <th>longitude</th>
+            <th>starting image</th>
+            <th>started date</th>
+            <th>updated image</th>
+            <th>progress</th>
+        </tr>
+        {%for i in data['works']%}
+        <tr>
+            <td>{{i['description']}}</td>
+            <td>{{i['latitude']}}</td>
+            <td>{{i['longitude']}}</td>
+            <td>{{i['image']}}</td>
+            <td>{{i['start_date']}}</td>
+            <td>{{i['image_proof']}}</td>
+            <td>{{i['progress']}}</td>
+            <td> <a href="?action=view&id={{i['work_id']}}">ongoing work requirements</a></td>
+        </tr>
+        {%endfor%}
+
+    </table>
+
+    {% endif %} -->
+
+
+    <section>
+
+      
+        <div class="bg-image h-100" style="background-color: #f5f7fa;">
+          <div class="mask d-flex align-items-center h-100">
+            <div class="container">
+            
+
+               
+            
+                <h1>ongoing work details</h1>
+              <div class="row justify-content-center">
+                <div class="col-12">
+                  <div class="card shadow-2-strong">
+                    <div class="card-body p-0">
+                      <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                        {%if data['rply']%}
+                        <h1>reply to feedback</h1>
+                        <form action="" method="post">
+                        <table>
+                            <tr>
+                                
+                                <th >{{data['rply'][0]['description']}}</th>
+                             
+                            
+                            </tr>
+                            <tr>
+                                <td><textarea name="rply" id="" placeholder="enter your reply here..."></textarea></td>
+                            </tr>
+                        
+                            <tr>
+                            <td><input type="submit" name="submit"></td> 
+                            </tr>
+                        </table>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+                        {%elif data['all'] %}
+                        <section>
+
+      
+                          <div class="bg-image h-100" style="background-color: #f5f7fa;">
+                            <div class="mask d-flex align-items-center h-100">
+                              <div class="container">
+                              
+                      
+                                 
+                              
+                                  <h1>work requirements</h1>
+                                <div class="row justify-content-center">
+                                  <div class="col-12">
+                                    <div class="card shadow-2-strong">
+                                      <div class="card-body p-0">
+                                        
+                                        <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                       
+                        <table>
+                          <thead>
+                            <tr>
+                                <th >shelter</th>
+                                <th >tools</th>
+                                <th >babies</th>
+                                <th >description</th>
+                                <th >date</th>
+                                <th >reply</th>
+                                <th ></th>
+                                <th></th>
+                           
+                           
+                             
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {%for i in data['all']%}
+                            <tr>
+                                <td>{{i['shelter']}}</td>
+                                <td>{{i['tools']}}</td>
+                                <td>{{i['water']}}</td>
+                                <td>{{i['babies']}}</td>
+                                <td>{{i['description']}}</td>
+                                <td>{{i['date']}}</td>
+                                <td>{{i['reply']}}</td>
+                                <td><a href="overseer_reply_response?&id={{i['feedback_id']}}">reply to feedback</a></td>
+                            </tr>
+                            {%endfor%}
+  
+                           
+                          </tbody>
+                        </table>                    </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+        </section>
+               
+                        {%else%}
+  
+                        <section>
+
+      
+                          <div class="bg-image h-100" style="background-color: #f5f7fa;">
+                            <div class="mask d-flex align-items-center h-100">
+                              <div class="container">
+                              
+                      
+                                 
+                           
+                                <div class="row justify-content-center">
+                                  <div class="col-12">
+                                    <div class="card shadow-2-strong">
+                                      <div class="card-body p-0">
+                                        
+                                        <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                          
+                          <table>
+                            <thead>
+                              <tr>
+                                <th >ward</th>
+                                <th >work description</th>
+                                <th >latitude</th>
+                                <th >longitude</th>
+                                <th >image</th>
+                                <th >start date</th>
+                                <th >updated image</th>
+                                <th >progress</th>
+                                <th ></th>
+                            
+                               
+                              </tr>
+                            </thead>
+                            <tbody>
+                                {%for i in data['works']%}
+                                <tr>
+                                    <td>{{i['ward']}}</td>
+                                    <td>{{i['description']}}</td>
+                                    <td>{{i['latitude']}}</td>
+                                    <td>{{i['longitude']}}</td>
+                                    <td>{{i['image']}}</td>
+                                    <td>{{i['start_date']}}</td>
+                                    <td>{{i['image_proof']}}</td>
+                                    <td>{{i['progress']}}</td>
+                                    <td> <a href="?action=view&id={{i['work_id']}}">ongoing work requirements</a></td>
+                                </tr>
+                                {%endfor%}
+  
+  
+                             
+  
+  
+                             
+  
+  
+                            
+                             
+                            </tbody>
+                          </table>
+                         
+                       
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {%endif%}
+      </section>
+    
+    {% include 'footer.html' %}

@@ -1,0 +1,115 @@
+{% include 'payment_header.html' %}
+
+<section>
+    <div class="bg-image h-100" style="background-color: #f5f7fa;">
+        <div class="mask d-flex align-items-center h-100">
+            <div class="container">
+                <h1>Complete Your Payment</h1>
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="card shadow-2-strong">
+                            <div class="card-body p-0">
+                                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                                    <!-- Google Pay Button -->
+                                     <form action="" method="post">
+                                     <table>
+                                        <thead>
+                                            <tr>
+                                            <th>Bank Account No:</th>
+                                            <th>Ward</th>
+                                            <th>Amount</th>
+                                            <th></th>
+                                           
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{{bank_account}}</td>
+                                                <td>{{ward}}</td>
+                                                <td>{{amt}}</td>
+                                                <td>
+                                                    <button id="googlePayButton" ></button>
+                                                </td>
+                                                <td>
+                                                   <input type="submit" value="Transaction Succesful" name="submit">
+                                        
+                                                </td>
+
+                                            </tr>
+                                          
+
+                                        </tbody>
+                                   
+                                </table>
+                            </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script async src="https://pay.google.com/gp/p/js/pay.js"></script>
+
+<script type="text/javascript">
+    const paymentsClient = new google.payments.api.PaymentsClient({environment: 'TEST'}); // Use 'PRODUCTION' for real transactions
+
+    const paymentRequest = {
+        apiVersion: 2,
+        apiVersionMinor: 0,
+        allowedPaymentMethods: [{
+            type: 'CARD',
+            parameters: {
+                allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+                allowedCardNetworks: ['MASTERCARD', 'VISA'],
+            },
+            tokenizationSpecification: {
+                type: 'PAYMENT_GATEWAY',
+                parameters: {
+                    'gateway': 'stripe',
+                    'gatewayMerchantId': 'your_merchant_id',
+                }
+            }
+        }],
+        transactionInfo: {
+            totalPriceStatus: 'FINAL',
+            totalPrice: '{{ amt }}',  // Dynamically set the amount from Flask
+            currencyCode: 'INR',
+        },
+        merchantInfo: {
+            merchantName: "{{bank_account}}",
+            merchantId: 'your_merchant_id',
+        },
+    };
+
+    const onGooglePayLoaded = () => {
+        paymentsClient.isReadyToPay(paymentRequest)
+            .then(function(response) {
+                if (response.result) {
+                    const googlePayButton = paymentsClient.createButton({onClick: onGooglePayButtonClicked});
+                    document.getElementById('googlePayButton').appendChild(googlePayButton);
+                }
+            })
+            .catch(function(err) {
+                console.error(err);
+            });
+    };
+
+    const onGooglePayButtonClicked = () => {
+        paymentsClient.loadPaymentData(paymentRequest)
+            .then(function(paymentData) {
+                // Payment was successful, process the paymentData
+                console.log(paymentData);
+            })
+            .catch(function(err) {
+                console.error(err);
+            });
+    };
+
+    onGooglePayLoaded();
+</script>
+
+{% include 'footer.html' %}

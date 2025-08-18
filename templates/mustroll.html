@@ -1,0 +1,368 @@
+{% include 'admin_header.html' %}
+<!-- <h1>completed mustrolls</h1>
+    {%if data['must']%}
+    
+    <form action="" method="post">
+    <table>
+        <tr>
+            <th>card id</th>
+            <th>morning attendance</th>
+            <th>afternoon attendance</th>
+            <th>date</th>
+            <th>status</th>
+        </tr>
+       {%for i in data['must']%}
+        <tr>
+            <td>{{i['card_id']}}</td>
+            <td>{{i['m_attendance']}}</td>
+            <td>{{i['a_attendance']}}</td>
+            <td>{{i['date']}}</td>
+            <td>{{i['status']}}</td>
+            
+        </tr>
+        {%endfor%}
+        <tr><td><input type="submit" value="approve" name='approve'></td></tr>
+     
+    </table>
+</form>
+    {%else%}
+    <p>mustroll pending</p>
+    {%endif%}
+
+    <h1>mustroll in progress</h1>
+    {%if data['pending'] %}
+    <table>
+        <tr>
+            <th>card id</th>
+            <th>morning attendance</th>
+            <th>afternoon attendance</th>
+            <th>date</th>
+            <th>status</th>
+        </tr>
+       {%for i in data['pending']%}
+        <tr>
+            <td>{{i['card_id']}}</td>
+            <td>{{i['m_attendance']}}</td>
+            <td>{{i['a_attendance']}}</td>
+            <td>{{i['date']}}</td>
+            <td>{{i['status']}}</td>
+            
+        </tr>
+        {%endfor%}
+       
+    </table>
+    {%else%}
+    <p>no data</p>
+    {%endif%}
+
+    <h1>missed mustroll</h1>
+    {%if data['missed'] %}
+
+
+    <table>
+        <tr>
+            <th>card id</th>
+            <th>morning attendance</th>
+            <th>afternoon attendance</th>
+            <th>date</th>
+            <th>status</th>
+        </tr>
+       {%for i in data['missed']%}
+        <tr>
+            <td>{{i['card_id']}}</td>
+            <td>{{i['m_attendance']}}</td>
+            <td>{{i['a_attendance']}}</td>
+            <td>{{i['date']}}</td>
+            <td>{{i['status']}}</td>
+            
+        </tr>
+        {%endfor%}
+       
+    </table>
+    {%else%}
+    <p>no data</p>
+    {%endif%}
+<h1>wage bill approved mustrolls</h1>
+    {%if data['completed']%}
+    <table>
+        <tr>
+            <th>card id</th>
+            <th>morning attendance</th>
+            <th>afternoon attendance</th>
+            <th>date</th>
+            <th>status</th>
+        </tr>
+       {%for i in data['completed']%}
+        <tr>
+            <td>{{i['card_id']}}</td>
+            <td>{{i['m_attendance']}}</td>
+            <td>{{i['a_attendance']}}</td>
+            <td>{{i['date']}}</td>
+            <td>{{i['status']}}</td>
+          
+           
+            
+        </tr>
+        {%endfor%}
+=
+       
+    </table>
+    {%else%}
+    <p>no data</p>
+    {%endif%} -->
+
+
+
+    <center><h1>MUSTROLL DETAILS</h1></center>
+<section>
+
+
+  <div class="bg-image h-100" style="background-color: #f5f7fa;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+
+     
+        <h1>completed mustrolls</h1>
+
+
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card shadow-2-strong">
+              <div class="card-body p-0">
+
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">                 
+
+             
+
+             
+                  <form action="" method="post">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>card number</th>
+                          <th>morning attendance</th>
+                          <th>afternoon attendance</th>
+                          <th>date</th>
+                          <th>percentage of attendance</th>
+
+                          <th></th>
+
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {%for i in data['must']%}
+                        <tr>
+                          <td>{{i['card_no']}}</td>
+                          <td>{{i['m_attendance']}}</td>
+                          <td>{{i['a_attendance']}}</td>
+                          <td>{{i['date']}}</td>
+                          <td>{{i['status']}}</td>
+
+                        </tr>
+                        {%endfor%}
+                        {%if data['must']%}
+                        <tr>
+                          <td><input type="submit" value="approve" name='approve'></td>
+                        </tr>
+                        {%endif%}
+
+
+                      </tbody>
+                    </table>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+<section>
+  <div class="bg-image h-100" style="background-color: #f5f7fa;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+
+        <h1>mustroll in progress</h1>
+
+
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card shadow-2-strong">
+              <div class="card-body p-0">
+
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">                  
+
+
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>card number</th>
+                        <th>morning attendance</th>
+                        <th>afternoon attendance</th>
+                        <th>date</th>
+                        <th>percentage of attendance</th>
+
+                        <th></th>
+                    </thead>
+                    <tbody>
+                      {%for i in data['pending']%}
+                      <tr>
+                        <td>{{i['card_no']}}</td>
+                        <td>{{i['m_attendance']}}</td>
+                        <td>{{i['a_attendance']}}</td>
+                        <td>{{i['date']}}</td>
+                        <td>{{i['status']}}</td>
+
+                      </tr>
+                      {%endfor%}
+
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+<section>
+
+  <div class="bg-image h-100" style="background-color: #f5f7fa;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+
+        <h1>missed mustroll</h1>
+
+
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card shadow-2-strong">
+              <div class="card-body p-0">
+
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">                 
+
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>card number</th>
+                        <th>morning attendance</th>
+                        <th>afternoon attendance</th>
+                        <th>date</th>
+                        <th>percentage of attendance</th>
+
+                        <th></th>
+
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {%for i in data['missed']%}
+                      <tr>
+                        <td>{{i['card_no']}}</td>
+                        <td>{{i['m_attendance']}}</td>
+                        <td>{{i['a_attendance']}}</td>
+                        <td>{{i['date']}}</td>
+                        <td>{{i['status']}}</td>
+
+                      </tr>
+                      {%endfor%}
+                      <tr>
+                        <td><input type="submit" value="approve" name='approve'></td>
+                      </tr>
+
+
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+
+<section>
+  <div class="bg-image h-100" style="background-color: #f5f7fa;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+
+
+
+
+        <h1>wage bill approved mustrolls</h1>
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card shadow-2-strong">
+              <div class="card-body p-0">
+
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">             
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>card number</th>
+                        <th>morning attendance</th>
+                        <th>afternoon attendance</th>
+                        <th>date</th>
+                        <th>percentage of attendance</th>
+
+                        <th></th>
+
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {%for i in data['completed']%}
+                      <tr>
+                        <td>{{i['card_no']}}</td>
+                        <td>{{i['m_attendance']}}</td>
+                        <td>{{i['a_attendance']}}</td>
+                        <td>{{i['date']}}</td>
+                        <td>{{i['status']}}</td>
+
+
+
+                      </tr>
+                      {%endfor%}
+
+
+
+                    </tbody>
+                  </table>
+               
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+{% include 'footer.html' %}

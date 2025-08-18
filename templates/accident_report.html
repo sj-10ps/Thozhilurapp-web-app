@@ -1,0 +1,138 @@
+{% include 'admin_header.html' %}
+   
+
+
+<section>
+  <div class="bg-image h-100" style="background-color: #f5f7fa;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+      
+
+         
+      
+        <h1>Accident reports</h1>
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card shadow-2-strong">
+              <div class="card-body p-0">
+                
+<div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+
+                        <form action="" method="post">
+                        <table>
+                          <thead>
+                            <tr>
+                             
+                              <th>accident report</th>
+                              <th>worker name</th>
+                              <th>card no</th>
+                              <th>date</th>
+                              <th>proceed </th>
+                              <th>reject</th>
+
+                            
+                           
+                          
+                             
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {%for i in data['acci']%}
+                            <tr>
+                                <td>{{i['report']}}</td>
+                                <td>{{i['worker_name']}}</a></td>
+                                <td>{{i['card_no']}}</a></td>
+                                <td>{{i['date']}}</td>
+                                <td><a href="accident_status?action=update&id={{i['accident_id']}}">Accept</a></td>
+                                <td><a href="accident_status?action=delete&id={{i['accident_id']}}">Reject</a></td>
+                                
+                               
+                            </tr>
+                            {%endfor%}
+  
+                           
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+            </section>
+                        <br><br>
+                      
+                        <section>
+                          <div class="bg-image h-100" style="background-color: #f5f7fa;">
+                            <div class="mask d-flex align-items-center h-100">
+                              <div class="container">
+                              
+                        
+                                 
+                                <h1>Approved accident reports</h1>
+                                <div class="row justify-content-center">
+                                  <div class="col-12">
+                                    <div class="card shadow-2-strong">
+                                      <div class="card-body p-0">
+                                        
+                      <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                      
+                            
+                            
+                          
+                          <table>
+                            <thead >
+                              <tr>
+                               
+                                <th>accident report</th>
+                                <th>worker name</th>
+                                <th>card no</th>
+
+                                <th>date</th>
+                                <th>status</th>
+                              
+                               
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {%for i in data['approved']%}
+                              <tr>
+                                  <td>{{i['report']}}</td>
+                                  <td>{{i['worker_name']}}</a></td>
+                                  <td>{{i['card_no']}}</a></td>
+                                  <td>{{i['date']}}</td>
+                                  <td>{{i['a_status']}}</td>
+                              
+                                
+                                 
+                              </tr>
+                              {%endfor%}
+  
+  
+  
+                             
+  
+  
+                             
+  
+  
+                            
+                             
+                            </tbody>
+                          </table>
+                        </form>
+                       
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+      </section>
+
+{% include 'footer.html' %}

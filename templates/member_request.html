@@ -1,0 +1,188 @@
+{% include 'admin_header.html' %}
+
+
+
+            
+    <section >
+
+      
+        <div class="bg-image h-100" style="background-color: #f5f7fa;">
+          <div class="mask d-flex align-items-center h-100">
+            <div class="container">
+            
+  
+               
+            
+                <h1>view requests and approve</h1>
+              <div class="row justify-content-center">
+                <div class="col-12">
+                  <div class="card shadow-2-strong">
+                    <div class="card-body p-0">
+                      
+                      <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                       
+                        <table>
+                          <thead >
+                            <tr >
+                                <th >first name</th>
+                                <th >last name</th>
+                                <th >date of birth</th>
+                                <th >gender</th>
+                                <th >phone</th>
+                                <th >email</th>
+                                <th >house name</th>
+                                <th >post office</th>
+                                <th >district</th>
+                               
+  
+                                <th >panchayat</th>
+                                <th >ward</th>
+                    
+                              <th >village</th>
+                              
+                              <th >aadhaar no</th>
+                            
+                              <th >aadhaar image</th>
+                              <th >ration card no</th>
+                              <th >ration image</th>
+                              <th ></th>
+                             
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {%for i in data['req']%}
+                            <tr>
+                                <td>{{i['first_name']}}</td>
+                                <td>{{i['last_name']}}</td>
+                                <td>{{i['dob']}}</td>
+                                <td>{{i['gender']}}</td>
+                                <td>{{i['phone']}}</td>
+                                <td>{{i['email''']}}</td>
+                                <td>{{i['house']}}</td>
+                                <td>{{i['post']}}</td>
+                                <td>{{i['district']}}</td>
+                                <td>{{i['panchayat']}}</td>
+                                <td>{{i['ward']}}</td>
+                                <td>{{i['village']}}</td>
+                                <td>{{i['aadhaar']}}</td>
+                               
+                                <td>{{i['aadhaar_image']}}</td>
+                                <td>{{i['ration_no']}}</td>
+                                <td><img src="{{i['ration_image']}}" alt=""></td>
+                                <td><a href="member_approval?req_id={{i['request_id']}}&card_no={{i['card_no']}}">approve or reject</a></td>
+                
+                            </tr>
+                            {%endfor%}
+  
+                           
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </section><br>
+                        
+      <section >
+
+      
+        <div class="bg-image h-100" style="background-color: #f5f7fa;">
+          <div class="mask d-flex align-items-center h-100">
+            <div class="container">
+            
+  
+              <h1>approved requests</h1>
+            
+            
+              <div class="row justify-content-center">
+                <div class="col-12">
+                  <div class="card shadow-2-strong">
+                    <div class="card-body p-0">
+                      
+                      <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                        
+                          
+                     
+
+                          <table>
+                            <thead >
+                             <tr>
+                              <th >Card No.</th>
+                                <th >first_name</th>
+                                <th >last_name</th>
+                                <th  >dob</th>
+                                <th  >gender</th>
+                                <th  >phone</th>
+                                <th  >email</th>
+                                <th  >house name</th>
+                                <th  >post office</th>
+                                <th  >district</th>
+                                <th  >panchayat</th>
+                                <th  >ward</th>
+                                <th  >village</th>
+                                <th  >aadhaar</th>
+                                <th  >ration_number</th>
+                                <th  >aadhar card image</th>
+                                <th  >ration card image</th>
+                              
+                    
+                            </tr>
+                          </thead>
+                          <tbody>
+                           
+                                {%for i in data['approved']%}
+                                <tr>
+                                    <td>{{i['first_name']}}</td>
+                                    <td>{{i['card_no']}}</td>
+                                    <td>{{i['last_name']}}</td>
+                                    <td>{{i['dob']}}</td>
+                                    <td>{{i['gender']}}</td>
+                                    <td>{{i['phone']}}</td>
+                                    <td>{{i['email''']}}</td>
+                                    <td>{{i['house']}}</td>
+                                    <td>{{i['post']}}</td>
+                                    <td>{{i['district']}}</td>
+                                    <td>{{i['panchayat']}}</td>
+                                    <td>{{i['ward']}}</td>
+                                    <td>{{i['village']}}</td>
+                                    <td>{{i['aadhaar']}}</td>
+                                    <td>{{i['ration_no']}}</td>
+                                    <td>{{i['aadhaar_image']}}</td>
+                                    <td><img src="{{i['ration_image']}}" alt=""></td>
+                           
+                    
+                                </tr>
+                                {%endfor%}
+                              
+  
+  
+  
+                             
+  
+  
+                             
+  
+  
+                            
+                             
+                            </tbody>
+                          </table>
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+        </section>
+      
+
+        {% include 'footer.html' %}
