@@ -1,6 +1,14 @@
 import uuid
 from flask import *
 from database import *
+import os
+import cloudinary
+import cloudinary.uploader
+cloudinary.config(
+       cloud_name=os.getenv('cloud_name'),
+  api_key=os.getenv('api_key'),
+  api_secret=os.getenv('api_secret')
+)
 
 
 overseer=Blueprint('overseer',__name__)
@@ -17,12 +25,14 @@ def geotag():
           lat=request.form['lat']
           image=request.files['img']
 
-          path='static/assets/images/geotag'+str(uuid.uuid4())+image.filename
-          image.save(path)
+          # path='static/assets/images/geotag'+str(uuid.uuid4())+image.filename
+          # image.save(path)
+          upload_result = cloudinary.uploader.upload(image)
+          image_url = upload_result["secure_url"]
 
 
           lon=request.form['lon']
-          qry1="insert into work values(null,'pending','%s','%s','%s','%s','%s','pending','pending','pending','pending','pending','pending')"%(ward,description,lat,path,lon)
+          qry1="insert into work values(null,'pending','%s','%s','%s','%s','%s','pending','pending','pending','pending','pending','pending')"%(ward,description,lat,image_url,lon)
           insert(qry1)
           return "<script>alert('uploaded successfully');window.location.href='geotag'</script>"
 
