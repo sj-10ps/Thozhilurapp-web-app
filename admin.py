@@ -539,14 +539,14 @@ def member_approval():
             aadhaar=data['app'][0]['aadhaar']
             ration_number=data['app'][0]['ration_no']
             
-            ration_card_image=data['app'][0]['ration_image']  
+           
             username=data['app'][0]['username']
             password=data['app'][0]['password']
             
             if status!='approved': 
                     qry4="insert into login values(null,'%s','%s','worker')"%(username,password)
                     login=insert(qry4)        
-                    qry3="insert into worker values(null,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','approved')"%(login,card_no,first_name,last_name,dob,gender,phone,email,house,post,district,panchayat,ward,village,aadhaar,ration_number,ration_card_image)
+                    qry3="insert into worker values(null,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','approved')"%(login,card_no,first_name,last_name,dob,gender,phone,email,house,post,district,panchayat,ward,village,aadhaar,ration_number)
                     insert(qry3)
                     
                     
