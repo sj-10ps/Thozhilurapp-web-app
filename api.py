@@ -1,5 +1,13 @@
 from flask import *
 from database import *
+import os
+import cloudinary
+import cloudinary.uploader
+cloudinary.config(
+       cloud_name=os.getenv('cloud_name'),
+  api_key=os.getenv('api_key'),
+  api_secret=os.getenv('api_secret')
+)
 
 
 api=Blueprint('api',__name__)
@@ -24,7 +32,7 @@ def worker_reg():
     village=request.args['village']
     aadhaar=request.args['aadhaar']
     ration_no=request.args['ration_no']
-    ration_img=request.args['ration_img']
+   
     
     username=request.args['username']
     password=request.args['password']
@@ -33,7 +41,7 @@ def worker_reg():
     # login=insert(qry2)
 
     
-    qry1="insert into member_request values(null,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','not_sneeded','%s','%s','%s','pending','registration')" %(c_no,fname,lname,dob,gender,phone,email,house,post,district,panchayat,ward,village,aadhaar,ration_no,ration_img,username,password)
+    qry1="insert into member_request values(null,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','not_sneeded','%s','%s','%s','pending','registration')" %(c_no,fname,lname,dob,gender,phone,email,house,post,district,panchayat,ward,village,aadhaar,ration_no,username,password)
     worker_id=insert(qry1)
     
 
@@ -1113,7 +1121,7 @@ def newmember_req():
     village=request.args['village']
     aadhaar=request.args['aadhaar']
     ration_no=request.args['ration_no']
-    ration_img=request.args['ration_img']
+   
     
     username=request.args['username']
     password=request.args['password']
@@ -1122,7 +1130,7 @@ def newmember_req():
     # login=insert(qry2)
 
     
-    qry1="insert into member_request values(null,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','not_sneeded','%s','%s','%s','pending','registration')" %(c_no,fname,lname,dob,gender,phone,email,house,post,district,panchayat,ward,village,aadhaar,ration_no,ration_img,username,password)
+    qry1="insert into member_request values(null,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','not_sneeded','%s','%s','%s','pending','registration')" %(c_no,fname,lname,dob,gender,phone,email,house,post,district,panchayat,ward,village,aadhaar,ration_no,username,password)
     worker_id=insert(qry1)
     
 
