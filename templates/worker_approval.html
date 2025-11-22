@@ -26,12 +26,7 @@
            <th>ration card number</th>
            <td>{{data['app'][0]['ration_no']}}</td></tr>
          
-         <tr> 
-          <th>ration card image</th>
-          <td>{{data['app1'][0]['ration_image']}}</td>
-          <th>ration card image</th>
-          <td>{{data['app'][0]['ration_image']}}</td>
-         </tr>
+       
       
       <tr> <td colspan="4"><input type="radio" value="approved" name="approval" checked>approve
           <input type="radio" value="rejected" name="approval">reject
@@ -99,7 +94,7 @@
                           
                            
                             <th >ration card no</th>
-                            <th >ration image</th>
+                       
                             <th >Approve or Reject</th>
                            
                           </tr>
@@ -125,7 +120,7 @@
                              
                             
                               <td>{{i['ration_no']}}</td>
-                              <td>{{i['ration_image']}}</td>
+                              
                               <td><button><a href="/registration_approval?action=update&id={{i['request_id']}}">Approve</a></button>
                                 <button><a href="/registration_approval?action=delete&id={{i['request_id']}}">Reject</a></button></td>
                               

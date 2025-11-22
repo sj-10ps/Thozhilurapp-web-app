@@ -553,8 +553,8 @@ def member_approval():
                     if existing:
                         print("already existing")
                     else:
-                        qry11="insert into work_card values(null,'%s','%s','%s','0','%s',CURDATE(),'%s','pending')"%(worker,ward,card_no,ration_number)
-                        insert(qry11)
+                         qry11="insert into work_card values(null,'%s','%s','%s','0',CURDATE(),'%s','pending')"%(worker,ward,card_no,ration_number)
+                         insert(qry11)
                     
                     
             qry5="update member_request set status='approved' where request_id='%s'"%(id)
@@ -750,7 +750,7 @@ def registration_approval():
             if existing:
                         print("already existing")
             else:
-                        qry11="insert into work_card values(null,'%s','%s','%s','0','%s',CURDATE(),'%s','pending')"%(worker_id,ward,card_no,ration_number)
+                        qry11="insert into work_card values(null,'%s','%s','%s','0',CURDATE(),'%s','pending')"%(worker_id,ward,card_no,ration_number)
                         insert(qry11)
                     
                     
