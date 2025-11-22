@@ -557,8 +557,8 @@ def member_approval():
                         insert(qry11)
                     
                     
-                        qry5="update member_request set status='approved' where request_id='%s'"%(id)
-                        res1=update(qry5)
+            qry5="update member_request set status='approved' where request_id='%s'"%(id)
+            res1=update(qry5)
                     
                   
             return "<script>alert('Done succesfully');window.location.href='request_add'</script>"
@@ -754,8 +754,7 @@ def registration_approval():
                         insert(qry11)
                     
                     
-                        qry5="update member_request set status='approved' where request_id='%s'"%(id)
-                        res1=update(qry5)
+            
                     
                     
             qry5="update member_request set status='approved' where request_id='%s'"%(id)
