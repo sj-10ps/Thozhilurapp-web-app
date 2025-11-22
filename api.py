@@ -41,7 +41,7 @@ def worker_reg():
     # login=insert(qry2)
 
     
-    qry1="insert into member_request values(null,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','not_sneeded','%s','%s','%s','pending','registration')" %(c_no,fname,lname,dob,gender,phone,email,house,post,district,panchayat,ward,village,aadhaar,ration_no,username,password)
+    qry1="insert into member_request values(null,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','pending','registration')" %(c_no,fname,lname,dob,gender,phone,email,house,post,district,panchayat,ward,village,aadhaar,ration_no,username,password)
     worker_id=insert(qry1)
     
 
@@ -1130,7 +1130,7 @@ def newmember_req():
     # login=insert(qry2)
 
     
-    qry1="insert into member_request values(null,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','not_sneeded','%s','%s','%s','pending','registration')" %(c_no,fname,lname,dob,gender,phone,email,house,post,district,panchayat,ward,village,aadhaar,ration_no,username,password)
+    qry1="insert into member_request values(null,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','pending','new')" %(c_no,fname,lname,dob,gender,phone,email,house,post,district,panchayat,ward,village,aadhaar,ration_no,username,password)
     worker_id=insert(qry1)
     
 

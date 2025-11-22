@@ -546,12 +546,19 @@ def member_approval():
             if status!='approved': 
                     qry4="insert into login values(null,'%s','%s','worker')"%(username,password)
                     login=insert(qry4)        
-                    qry3="insert into worker values(null,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','approved')"%(login,card_no,first_name,last_name,dob,gender,phone,email,house,post,district,panchayat,ward,village,aadhaar,ration_number)
-                    insert(qry3)
+                    qry3="insert into worker values(null,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"%(card_no,first_name,last_name,dob,gender,phone,email,house,post,district,panchayat,ward,village,aadhaar,ration_number,login)
+                    worker=insert(qry3)
+                    qry10="select * from work_card where card_no='%s'"%(card_no)
+                    existing=select(qry10)
+                    if existing:
+                        print("already existing")
+                    else:
+                        qry11="insert into work_card values(null,'%s','%s','%s','0','%s',CURDATE(),'%s','pending')"%(worker,ward,card_no,ration_number)
+                        insert(qry11)
                     
                     
-                    qry5="update member_request set status='approved' where request_id='%s'"%(id)
-                    res1=update(qry5)
+                        qry5="update member_request set status='approved' where request_id='%s'"%(id)
+                        res1=update(qry5)
                     
                   
             return "<script>alert('Done succesfully');window.location.href='request_add'</script>"
@@ -731,15 +738,24 @@ def registration_approval():
             aadhaar=data['approved'][0]['aadhaar']
             ration_number=data['approved'][0]['ration_no']
             
-            ration_card_image=data['approved'][0]['ration_image']  
+          
             username=data['approved'][0]['username']
             password=data['approved'][0]['password']
             qry4="insert into login values(null,'%s','%s','worker')"%(username,password)
             login=insert(qry4)        
-            qry3="insert into worker values(null,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"%(login,card_no,first_name,last_name,dob,gender,phone,email,house,post,district,panchayat,ward,village,aadhaar,ration_number,ration_card_image)
+            qry3="insert into worker values(null,'%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"%(login,card_no,first_name,last_name,dob,gender,phone,email,house,post,district,panchayat,ward,village,aadhaar,ration_number)
             worker_id=insert(qry3)
-            qry8="insert into work_card values(null,'%s','%s','%s','pending','pending','%s','%s','pending')"%(worker_id,ward,card_no,ration_number,ration_card_image)
-            res=insert(qry8)
+            qry10="select * from work_card where card_no='%s'"%(card_no)
+            existing=select(qry10)
+            if existing:
+                        print("already existing")
+            else:
+                        qry11="insert into work_card values(null,'%s','%s','%s','0','%s',CURDATE(),'%s','pending')"%(worker,ward,card_no,ration_number)
+                        insert(qry11)
+                    
+                    
+                        qry5="update member_request set status='approved' where request_id='%s'"%(id)
+                        res1=update(qry5)
                     
                     
             qry5="update member_request set status='approved' where request_id='%s'"%(id)
